@@ -6,10 +6,11 @@ from typing import Any, Optional
 BASE_DIR = Path(__file__).resolve().parent
 DATA_FILE = BASE_DIR / "data.json"
 
-VALID_SECTIONS = {"gpa", "attendance", "planner", "countdown", "settings"}
+VALID_SECTIONS = {"gpa", "attendance", "planner", "countdown", "settings", "courses"}
 
 def _default_data() -> dict:
     return {
+        "courses": {},
         "gpa": {},
         "attendance": {},
         "planner": {},

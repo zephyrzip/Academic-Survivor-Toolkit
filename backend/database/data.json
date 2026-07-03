@@ -1,7 +1,16 @@
 {
-    "gpa": {},
-    "attendance": {},
-    "planner": {},
-    "countdown": {},
-    "settings": {}
+  "courses": {
+    "968b8486aaa4489088e3aeaba361d098": {
+      "name": "DSA",
+      "coursecode": "CSE2002",
+      "credits": 5.0,
+      "semester": "3rd",
+      "id": "968b8486aaa4489088e3aeaba361d098"
+    }
+  },
+  "gpa": {},
+  "attendance": {},
+  "planner": {},
+  "countdown": {},
+  "settings": {}
 }
