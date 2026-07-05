@@ -1,12 +1,11 @@
 import json
-import os
 from pathlib import Path
 from typing import Any, Optional
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_FILE = BASE_DIR / "data.json"
 
-VALID_SECTIONS = {"gpa", "attendance", "planner", "countdown", "settings", "courses"}
+VALID_SECTIONS = {"gpa", "attendance", "planner", "countdown", "settings", "courses", "assignments"}
 
 def _default_data() -> dict:
     return {
@@ -15,7 +14,8 @@ def _default_data() -> dict:
         "attendance": {},
         "planner": {},
         "countdown": {},
-        "settings": {}
+        "settings": {},
+        "assignments": {}
     }
 
 def load_data() -> dict:
@@ -34,7 +34,12 @@ def load_data() -> dict:
     
 def save_data(data: dict) -> None:
     with open(DATA_FILE, "w") as f:
-        json.dump(data, f, indent=2)
+        json.dump(
+            data,
+            f,
+            indent=2,
+            default=str  # This will convert non-serializable objects to strings
+        )
 
 def get_section(section: str) -> Optional[dict]:
 

@@ -1,16 +1,26 @@
 {
   "courses": {
-    "968b8486aaa4489088e3aeaba361d098": {
-      "name": "DSA",
-      "coursecode": "CSE2002",
-      "credits": 5.0,
-      "semester": "3rd",
-      "id": "968b8486aaa4489088e3aeaba361d098"
+    "262751e1f7c14944a49a458969820c65": {
+      "name": "Operating Systems",
+      "coursecode": "CSE2022",
+      "credits": 4.0,
+      "semester": "2nd",
+      "id": "262751e1f7c14944a49a458969820c65"
     }
   },
   "gpa": {},
   "attendance": {},
   "planner": {},
   "countdown": {},
-  "settings": {}
+  "settings": {},
+  "assignments": {
+    "f06518177d6147d2ab91d389bd3483ae": {
+      "name": "Yung Blud",
+      "description": "Write a BITCHASS NIGGA",
+      "due_date": "2026-07-10",
+      "course_id": "262751e1f7c14944a49a458969820c65",
+      "status": "completed",
+      "id": "f06518177d6147d2ab91d389bd3483ae"
+    }
+  }
 }

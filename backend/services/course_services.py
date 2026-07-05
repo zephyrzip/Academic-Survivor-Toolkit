@@ -19,10 +19,10 @@ def create_course(course_data: CourseCreate) -> Course:
 
     new_course = Course(
         id=uuid.uuid4().hex,
-        **course_data.model_dump()
+        **course_data.model_dump(mode="json")
     )
 
-    courses[new_course.id] = new_course.model_dump()
+    courses[new_course.id] = new_course.model_dump(mode="json")
 
     db.update_section("courses", courses)
 
