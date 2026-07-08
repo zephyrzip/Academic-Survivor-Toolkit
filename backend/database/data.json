@@ -8,7 +8,16 @@
       "id": "262751e1f7c14944a49a458969820c65"
     }
   },
-  "gpa": {},
+  "gpa": {
+    "fb3e3fe77a7945cda0500eaeb298df60": {
+      "course_id": "262751e1f7c14944a49a458969820c65",
+      "component_name": "UT -1 ",
+      "marks_obtained": 15.0,
+      "total_marks": 20.0,
+      "weight_percentage": 15.0,
+      "id": "fb3e3fe77a7945cda0500eaeb298df60"
+    }
+  },
   "attendance": {
     "5bab52c8757a48d7aa0c2ecf9992a40e": {
       "course_id": "262751e1f7c14944a49a458969820c65",
