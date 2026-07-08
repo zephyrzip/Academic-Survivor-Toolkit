@@ -2,7 +2,7 @@ from typing import Iterable
 
 from backend.gpa import calculations as calc
 from backend.gpa.models import GPAEstimate
-
+from backend.gpa import predictor
 
 def build_gpa_estimate(
     course_id: str,
@@ -13,7 +13,7 @@ def build_gpa_estimate(
     remaining = calc.remaining_weight(entries)
 
     current = calc.current_percentage(entries)
-    predicted = calc.predicted_percentage(entries)
+    predicted = predictor.predicted_percentage(entries)
     best = calc.best_case_final_percentage(entries)
     worst = calc.worst_case_final_percentage(entries)
 

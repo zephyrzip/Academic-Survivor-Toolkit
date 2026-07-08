@@ -16,6 +16,22 @@
       "total_marks": 20.0,
       "weight_percentage": 15.0,
       "id": "fb3e3fe77a7945cda0500eaeb298df60"
+    },
+    "b1ad2141281246f48e14dcb996179a0d": {
+      "course_id": "262751e1f7c14944a49a458969820c65",
+      "component_name": "UT-2",
+      "marks_obtained": 10.0,
+      "total_marks": 20.0,
+      "weight_percentage": 15.0,
+      "id": "b1ad2141281246f48e14dcb996179a0d"
+    },
+    "80e51b401b504e269eb82f8b56d2afd6": {
+      "course_id": "262751e1f7c14944a49a458969820c65",
+      "component_name": "MID SEM",
+      "marks_obtained": 37.0,
+      "total_marks": 40.0,
+      "weight_percentage": 25.0,
+      "id": "80e51b401b504e269eb82f8b56d2afd6"
     }
   },
   "attendance": {
