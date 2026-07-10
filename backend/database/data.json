@@ -1,13 +1,5 @@
 {
-  "courses": {
-    "262751e1f7c14944a49a458969820c65": {
-      "name": "Operating Systems",
-      "coursecode": "CSE2022",
-      "credits": 4.0,
-      "semester": "2nd",
-      "id": "262751e1f7c14944a49a458969820c65"
-    }
-  },
+  "courses": {},
   "gpa": {
     "fb3e3fe77a7945cda0500eaeb298df60": {
       "course_id": "262751e1f7c14944a49a458969820c65",
