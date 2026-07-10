@@ -45,7 +45,37 @@
   },
   "planner": {},
   "countdown": {},
-  "settings": {},
+  "settings": {
+    "default": {
+      "academic": {
+        "attendance_target": 80.0,
+        "minimum_attendance": 75.0,
+        "passing_marks": 35.0,
+        "default_course_credit": 4,
+        "internal_target": 25.0,
+        "semester_target_gpa": 9.0
+      },
+      "grading_scale": {
+        "O": 10.0,
+        "A+": 9.0,
+        "A": 8.0,
+        "B+": 7.0,
+        "B": 6.0,
+        "C": 5.0,
+        "F": 0.0
+      },
+      "planner": {
+        "default_priority": "medium",
+        "default_estimated_duration": 60,
+        "default_reminder_days": 1
+      },
+      "countdown": {
+        "timezone": "Asia/Kolkata",
+        "date_format": "DD/MM/YYYY",
+        "show_expired": true
+      }
+    }
+  },
   "assignments": {
     "f06518177d6147d2ab91d389bd3483ae": {
       "name": "Yung Blud",
