@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from backend.database.database import load_data, save_data, get_section, update_section, reset_database
 from backend.routes.countdowns import router as countdowns_router
 from backend.routes.courses import router as courses_router
@@ -13,6 +16,14 @@ app = FastAPI(
     version="0.1.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, replace "*" with your actual frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(courses_router)
 app.include_router(countdowns_router)
 app.include_router(planners_router)
@@ -21,9 +32,11 @@ app.include_router(assignments_router)
 app.include_router(attendance_router)
 app.include_router(settings_router)
 
+try:
+    app.mount("/static", StaticFiles(directory="frontend"), name="static")
+except RuntimeError:
+    print("Warning: 'frontend' directory not found. Please create it and add index.html")
+
 @app.get("/")
 def home():
-    return {
-        "status": "running",
-        "project": "Academic Survivor Toolkit"
-    }
+    return FileResponse("frontend/index.html")

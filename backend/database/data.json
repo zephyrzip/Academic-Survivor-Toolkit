@@ -1,40 +1,7 @@
 {
   "courses": {},
-  "gpa": {
-    "fb3e3fe77a7945cda0500eaeb298df60": {
-      "course_id": "262751e1f7c14944a49a458969820c65",
-      "component_name": "UT -1 ",
-      "marks_obtained": 15.0,
-      "total_marks": 20.0,
-      "weight_percentage": 15.0,
-      "id": "fb3e3fe77a7945cda0500eaeb298df60"
-    },
-    "b1ad2141281246f48e14dcb996179a0d": {
-      "course_id": "262751e1f7c14944a49a458969820c65",
-      "component_name": "UT-2",
-      "marks_obtained": 10.0,
-      "total_marks": 20.0,
-      "weight_percentage": 15.0,
-      "id": "b1ad2141281246f48e14dcb996179a0d"
-    },
-    "80e51b401b504e269eb82f8b56d2afd6": {
-      "course_id": "262751e1f7c14944a49a458969820c65",
-      "component_name": "MID SEM",
-      "marks_obtained": 37.0,
-      "total_marks": 40.0,
-      "weight_percentage": 25.0,
-      "id": "80e51b401b504e269eb82f8b56d2afd6"
-    }
-  },
-  "attendance": {
-    "5bab52c8757a48d7aa0c2ecf9992a40e": {
-      "course_id": "262751e1f7c14944a49a458969820c65",
-      "total_classes": 100,
-      "attended_classes": 95,
-      "target_percentage": 75.0,
-      "id": "5bab52c8757a48d7aa0c2ecf9992a40e"
-    }
-  },
+  "gpa": {},
+  "attendance": {},
   "planner": {},
   "countdown": {},
   "settings": {
@@ -68,14 +35,5 @@
       }
     }
   },
-  "assignments": {
-    "f06518177d6147d2ab91d389bd3483ae": {
-      "name": "Yung Blud",
-      "description": "Write a BITCHASS NIGGA",
-      "due_date": "2026-07-10",
-      "course_id": "262751e1f7c14944a49a458969820c65",
-      "status": "completed",
-      "id": "f06518177d6147d2ab91d389bd3483ae"
-    }
-  }
+  "assignments": {}
 }

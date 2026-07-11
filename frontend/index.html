@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Survivor Toolkit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#62a6ec', secondary: '#2080e4' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 h-screen overflow-hidden">
+
+    <div id="login-view" class="h-full flex items-center justify-center hidden">
+        <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md border border-slate-100">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-indigo-50 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-slate-800">Welcome to Survivor Kit</h1>
+                <p class="text-slate-500 text-sm mt-2">Let's get you set up for the semester.</p>
+            </div>
+
+            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="input-name" required placeholder="e.g. Jane Doe" 
+                        class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Username</label>
+                    <input type="text" id="input-username" required placeholder="e.g. thejanedoe2" 
+                        class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-indigo-100 outline-none transition">
+                </div>
+                <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 rounded-lg shadow-md transition duration-200 mt-4">
+                    Enter Toolkit
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard-view" class="h-full flex hidden w-full">
+        <aside class="w-64 bg-white shadow-xl hidden md:flex flex-col z-10">
+            <div class="p-6 text-center border-b">
+                <h1 class="text-2xl font-bold text-primary"><i class="fa-solid fa-graduation-cap"></i> Survivor Kit</h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-primary rounded-lg font-medium">
+                    <i class="fa-solid fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-primary rounded-lg transition">
+                    <i class="fa-solid fa-book"></i> Courses
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-primary rounded-lg transition">
+                    <i class="fa-solid fa-clipboard-user"></i> Attendance
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-primary rounded-lg transition">
+                    <i class="fa-solid fa-list-check"></i> Assignments
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-primary rounded-lg transition">
+                    <i class="fa-solid fa-calculator"></i> GPA Estimator
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-primary rounded-lg transition">
+                    <i class="fa-solid fa-hourglass-half"></i> Countdowns
+                </a>
+            </nav>
+            <div class="p-4 border-t">
+                <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-2 text-rose-500 hover:bg-rose-50 rounded-lg transition font-medium">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col h-full overflow-hidden">
+            <header class="bg-white shadow-sm px-8 py-4 flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-slate-700">Overview Dashboard</h2>
+                <button class="text-slate-400 hover:text-primary"><i class="fa-solid fa-gear text-xl"></i></button>
+            </header>
+
+            <div class="flex-1 p-8 overflow-y-auto">
+                
+                <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white shadow-lg mb-8">
+                    <h2 class="text-3xl font-bold mb-2" id="welcome-message">Hello!</h2>
+                    <p class="text-indigo-100">Keep track of your semester and stay ahead of your deadlines.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium">Active Courses</p>
+                                <h3 class="text-3xl font-bold text-slate-700" id="course-count">-</h3>
+                            </div>
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-book-open"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium">Pending Assignments</p>
+                                <h3 class="text-3xl font-bold text-slate-700" id="assignment-count">-</h3>
+                            </div>
+                            <div class="p-3 bg-orange-50 text-orange-600 rounded-lg"><i class="fa-solid fa-file-pen"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium">Active Countdowns</p>
+                                <h3 class="text-3xl font-bold text-slate-700" id="countdown-count">-</h3>
+                            </div>
+                            <div class="p-3 bg-rose-50 text-rose-600 rounded-lg"><i class="fa-solid fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="font-semibold text-slate-800">Recent Assignments</h3>
+                        <button class="text-sm text-primary font-medium hover:underline">View All</button>
+                    </div>
+                    <div class="p-0">
+                        <table class="w-full text-left border-collapse" id="assignments-table">
+                            <thead>
+                                <tr class="bg-slate-50 text-slate-500 text-sm">
+                                    <th class="px-6 py-3 font-medium">Assignment Name</th>
+                                    <th class="px-6 py-3 font-medium">Status</th>
+                                    <th class="px-6 py-3 font-medium">Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100" id="assignments-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const API_BASE = "http://localhost:8000";
+
+        // DOM Elements
+        const loginView = document.getElementById('login-view');
+        const dashboardView = document.getElementById('dashboard-view');
+        const welcomeMessage = document.getElementById('welcome-message');
+
+        // Check login status on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            checkAuth();
+        });
+
+        // 1. Authentication Logic
+        function checkAuth() {
+            const username = localStorage.getItem('ast_username');
+            const fullName = localStorage.getItem('ast_fullname');
+
+            if (username && fullName) {
+                // User is logged in -> Show Dashboard
+                loginView.classList.add('hidden');
+                loginView.classList.remove('flex');
+                
+                dashboardView.classList.remove('hidden');
+                dashboardView.classList.add('flex');
+                
+                // Set the dynamic greeting
+                welcomeMessage.innerText = `Hello ${username}!`;
+                
+                // Fetch data from backend
+                loadDashboardData();
+            } else {
+                // User is NOT logged in -> Show Login
+                dashboardView.classList.add('hidden');
+                dashboardView.classList.remove('flex');
+                
+                loginView.classList.remove('hidden');
+                loginView.classList.add('flex');
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent page reload
+            
+            const name = document.getElementById('input-name').value;
+            const username = document.getElementById('input-username').value;
+
+            // Save to browser's local storage
+            localStorage.setItem('ast_fullname', name);
+            localStorage.setItem('ast_username', username);
+
+            // Re-run the auth check to show dashboard
+            checkAuth();
+        }
+
+        function handleLogout() {
+            // Clear local storage and send back to login screen
+            localStorage.removeItem('ast_fullname');
+            localStorage.removeItem('ast_username');
+            
+            // Clear inputs so they are empty next time
+            document.getElementById('input-name').value = '';
+            document.getElementById('input-username').value = '';
+
+            checkAuth();
+        }
+
+        // 2. Data Fetching Logic (Only runs if logged in)
+        async function loadDashboardData() {
+            const tbody = document.getElementById('assignments-body');
+            tbody.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-center text-slate-400">Loading data...</td></tr>`;
+            
+            try {
+                const [coursesRes, assignmentsRes, countdownsRes] = await Promise.all([
+                    fetch(`${API_BASE}/courses`),
+                    fetch(`${API_BASE}/assignments`),
+                    fetch(`${API_BASE}/countdowns`)
+                ]);
+
+                const courses = await coursesRes.json();
+                const assignments = await assignmentsRes.json();
+                const countdowns = await countdownsRes.json();
+
+                // Update UI Counters
+                document.getElementById('course-count').innerText = courses.length || 0;
+                
+                const pendingAssignments = assignments.filter(a => a.status === 'pending');
+                document.getElementById('assignment-count').innerText = pendingAssignments.length || 0;
+                
+                const activeCountdowns = countdowns.filter(c => !c.expired);
+                document.getElementById('countdown-count').innerText = activeCountdowns.length || 0;
+
+                // Populate Assignments Table
+                tbody.innerHTML = ''; 
+
+                if (assignments.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-center text-slate-400">No assignments found! Enjoy your free time.</td></tr>`;
+                } else {
+                    assignments.forEach(task => {
+                        let statusColor = task.status === 'completed' ? 'bg-green-100 text-green-700' : 
+                                          task.status === 'overdue' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700';
+
+                        let row = `
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-800">${task.name}</div>
+                                    <div class="text-xs text-slate-500 truncate max-w-xs">${task.description || 'No description'}</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-3 py-1 rounded-full text-xs font-medium ${statusColor}">
+                                        ${task.status.charAt(0).toUpperCase() + task.status.slice(1)}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-slate-600">
+                                    ${task.due_date || 'N/A'}
+                                </td>
+                            </tr>
+                        `;
+                        tbody.insertAdjacentHTML('beforeend', row);
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching from backend:", error);
+                tbody.innerHTML = `
+                    <tr><td colspan="3" class="px-6 py-8 text-center text-red-400">
+                        Failed to connect to backend. Is FastAPI running on port 8000?
+                    </td></tr>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
